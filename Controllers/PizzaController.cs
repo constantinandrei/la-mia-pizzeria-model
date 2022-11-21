@@ -14,5 +14,13 @@ namespace la_mia_pizzeria_static.Controllers
             ViewData["Title"] = "Todi Pizza";
             return View(Pizze);
         }
+
+        public IActionResult Detail(int id)
+        {
+            PizzaDbContext db = new PizzaDbContext();
+            Pizza pizza = db.Pizzas.Where(p => p.Id == id).FirstOrDefault();
+            ViewData["Title"] = "Todi Pizza";
+            return View(pizza);
+        }
     }
 }
